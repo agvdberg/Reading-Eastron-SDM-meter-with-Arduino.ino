@@ -36,10 +36,6 @@
 #include "ModbusMaster.h" //https://github.com/4-20ma/ModbusMaster
 #include <SPI.h>      // Comm with internet hat
 
-long iAliveCounter = 0;
-
-void callback(char* topic, byte* payload, unsigned int length);
-
 // RS485 definitions
 // RS485 has a enable/disable pin to transmit or receive data. Using Arduino Rx/Tx 'Enable'; High to Transmit, Low to Receive
 // Serial2 uses RX-PIN 17 = RX2
@@ -52,7 +48,6 @@ long lastSDMMillis = 0;
  
 // instantiate ModbusMaster object
 ModbusMaster modbus1;
-boolean bStar = true;
 
 // Routines needed for RS485-communication
 void preTransmission()
