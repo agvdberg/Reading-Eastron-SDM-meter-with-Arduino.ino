@@ -85,7 +85,6 @@ void setup()
   modbus1.postTransmission(postTransmission);
   Serial.println("- pre and postTransmission functions set up");
 
-  startMillis = millis();   // now is startup
 }
 
 /*******************************************************************************************************\
@@ -162,7 +161,6 @@ void LeesSDM1Volt() {
     uint8_t result = modbus1.readInputRegisters(0x30000, aantal_registers);   // from register en so many values/registers 
     unsigned long l;  // results
     Serial.print("- Registers lezen SDM-1 vanaf 0x30000");
-    lcd.setCursor(2,3);
 
     if (getResultMsg(&modbus1, result)) {                 // handle result, also when error response
       // initiate enough room
@@ -207,7 +205,6 @@ void LeesSDM1Total() {
     uint8_t result = modbus1.readInputRegisters(0x30156, aantal_registers);   // from register en so many values/registers 
     unsigned long l;  // results
     Serial.print("- Registers lezen SDM-1 vanaf 0x30156");
-    lcd.setCursor(3,3);
     
     if (getResultMsg(&modbus1, result)) {                 // handle result, also when error response
       // initiate enough room
